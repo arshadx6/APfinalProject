@@ -2,6 +2,7 @@ package sample;
 
 
 import javafx.util.*;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +18,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 800));
         primaryStage.show();
        root.requestFocus();
+       System.out.println("HELLo");
     }
 
 
@@ -26,4 +28,3 @@ public class Main extends Application {
         launch(args);
     }
 }
-s
