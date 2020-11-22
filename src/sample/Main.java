@@ -18,7 +18,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 600, 800));
         primaryStage.show();
        root.requestFocus();
-       System.out.println("HELLo");
+       //System.out.println("HELLo");
     }
 
 
