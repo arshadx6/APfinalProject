@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Help">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="600.0">
+         <image>
+            <Image url="file:/C:/Users/arsha/Downloads/helpscreen.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="49.0" layoutX="6.0" layoutY="7.0">
+         <image>
+            <Image url="file:/C:/Users/arsha/Downloads/backSymbol.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Back" layoutX="6.0" layoutY="7.0" mnemonicParsing="false" onAction="#changescreen" opacity="0.0" prefHeight="46.0" prefWidth="65.0" text="Button" />
+   </children>
+</AnchorPane>
