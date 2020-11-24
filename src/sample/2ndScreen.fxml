@@ -14,32 +14,32 @@
          <children>
             <ImageView fx:id="Back" fitHeight="800.0" fitWidth="600.0">
                <image>
-                  <Image url="file:/C:/Users/arsha/Downloads/screen.PNG" />
+                  <Image url="screen.PNG" />
                </image>
             </ImageView>
             <ImageView fx:id="CircleImage" fitHeight="342.0" fitWidth="346.0" layoutX="128.0" layoutY="34.0" onDragDetected="#initialize">
                <image>
-                  <Image url="file:/C:/Users/arsha/Downloads/circle.png" />
+                  <Image url="circle.png" />
                </image>
             </ImageView>
             <ImageView fx:id="StartImage" fitHeight="53.0" fitWidth="265.0" layoutX="168.0" layoutY="457.0">
                <image>
-                  <Image url="file:/C:/Users/arsha/Downloads/Untitled-1.png" />
+                  <Image url="Untitled-1.png" />
                </image>
             </ImageView>
             <ImageView fx:id="ResumeImage" fitHeight="53.0" fitWidth="299.0" layoutX="152.0" layoutY="551.0">
                <image>
-                  <Image url="file:/C:/Users/arsha/Downloads/Untitled-2.png" />
+                  <Image url="Untitled-2.png" />
                </image>
             </ImageView>
             <ImageView fx:id="ExitImage" fitHeight="53.0" fitWidth="81.0" layoutX="260.0" layoutY="651.0">
                <image>
-                  <Image url="file:/C:/Users/arsha/Downloads/Untitled-3.png" />
+                  <Image url="Untitled-3.png" />
                </image>
             </ImageView>
             <ImageView fx:id="HelpImage" fitHeight="69.0" fitWidth="37.0" layoutX="542.0" layoutY="724.0">
                <image>
-                  <Image url="file:/C:/Users/arsha/Downloads/Untitled-4.png" />
+                  <Image url="Untitled-4.png" />
                </image>
             </ImageView>
             <Button fx:id="Start" contentDisplay="TEXT_ONLY" layoutX="91.0" layoutY="449.0" mnemonicParsing="false" onAction="#changescreen" opacity="0.0" prefHeight="69.0" prefWidth="430.0" text="Start Game">

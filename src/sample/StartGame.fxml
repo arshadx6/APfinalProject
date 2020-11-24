@@ -13,13 +13,13 @@
    <children>
       <ImageView fx:id="Back" fitHeight="800.0" fitWidth="600.0">
          <image>
-            <Image url="file:/C:/Users/arsha/Downloads/screen.PNG" />
+            <Image url="screen.PNG" />
          </image>
       </ImageView>
       <Circle fx:id="Ball" fill="#fbe100" layoutX="300.0" layoutY="771.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fitHeight="40.0" fitWidth="30.0" layoutX="556.0" layoutY="14.0">
          <image>
-            <Image url="file:/C:/Users/arsha/Downloads/pause.png" />
+            <Image url="pause.png" />
          </image>
       </ImageView>
       <Button fx:id="Pause" layoutX="535.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Pausescreen" opacity="0.0" prefHeight="60.0" prefWidth="65.0" text="Button" />
