@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<ScrollPane fx:id="Scroll" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Vboxtrial">
+  <content>
+    <AnchorPane fx:id="main" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="600.0">
+         <children>
+            <Circle fx:id="BALL" fill="#ff0181" layoutX="300.0" layoutY="773.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fx:id="POINTS" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POINTS:" wrappingWidth="80.6708984375">
+               <font>
+                  <Font name="Cambria Bold Italic" size="17.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+  </content>
+</ScrollPane>

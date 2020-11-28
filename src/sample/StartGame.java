@@ -45,8 +45,6 @@ public class StartGame implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // final double rectangleSpeed = 100 ; // pixels per second
-      //  final Timeline loop =new Timeline(new KeyFrame(Duration.seconds(1)));
         Arc arc = new Arc(300,150,100,100,0,90);
         arc.setStroke(Color.valueOf("FF0181"));
         arc.setStrokeWidth(20);
@@ -66,7 +64,7 @@ public class StartGame implements Initializable {
         arc4.setStroke(Color.valueOf("33DBF0"));
         arc4.setStrokeWidth(20);
         arc4.setFill(Color.TRANSPARENT);
-        Image image =new Image("file:/C:/Users/arsha/Downloads/star.png");
+        Image image =new Image("star.png");
         ImageView star =new ImageView(image);
         star.setFitHeight(40);
         star.setFitWidth(40);
