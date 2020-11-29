@@ -11,9 +11,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
@@ -23,11 +23,12 @@ import javafx.util.Duration;
 
 import javax.swing.text.html.ImageView;
 import java.net.URL;
-import java.security.Key;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
-public class Vboxtrial implements Initializable {
+public class Start implements Initializable {
     @FXML
     Circle BALL;
     @FXML
@@ -35,13 +36,14 @@ public class Vboxtrial implements Initializable {
     @FXML
             AnchorPane main;
     @FXML
-            ImageView back;
-    @FXML
             Text POINTS;
+
     double newY = 0;
    // Circle BALL = new Circle(100);
     double DistTravelled=0;
     double baseline=600;
+    int pointcount=0;
+    Random random=new Random();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //V.setAlignment(Pos.BOTTOM_CENTER);
@@ -51,9 +53,15 @@ public class Vboxtrial implements Initializable {
         Scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         Scroll.setStyle("-fx-background: #" + "3D3E3D");
         ArrayList<Shape> a = new ArrayList<>();
-
+        ArrayList<String> colors = new ArrayList<>();
+        colors.add("FF0181");
+        colors.add("FBE100");
+        colors.add("910DFF");
+        colors.add("33DBF0");
        // Scroll.getChildrenUnmodifiable().add(text);
         int[] count={1};
+        ArrayList<javafx.scene.image.ImageView> starlist=new ArrayList<>();
+        ArrayList<javafx.scene.image.ImageView> clrlist=new ArrayList<>();
       //  Scroll.setViewportBounds(text.getLayoutBounds());
         //Scroll.requestFocus();
         EventHandler<KeyEvent> eventHandler = new EventHandler<KeyEvent>() {
@@ -79,6 +87,7 @@ public class Vboxtrial implements Initializable {
                     //    System.out.println(" NEW Y--"+newY);
                         main.setTranslateY(main.getTranslateY()+DistTravelled);
                         POINTS.setTranslateY(POINTS.getTranslateY()-DistTravelled);
+
                         System.out.println(" BEFORE NEW Y"+500*count[0]);
                         if(newY<=500*count[0]){
                             System.out.println("HHELLOs and COUNT "+count[0]);
@@ -108,26 +117,36 @@ public class Vboxtrial implements Initializable {
                             arc3.setFill(Color.TRANSPARENT);
 
                             Arc arc4 = new Arc(300, 150, 100, 100, 270, 90);
-
+                            arc4.setStroke(Color.valueOf("33DBF0"));
+                            arc4.setStrokeWidth(20);
+                            arc4.setFill(Color.TRANSPARENT);
                             a.add(arc);
                             a.add(arc2);
                             a.add(arc3);
                             a.add(arc4);
-                            arc4.setStroke(Color.valueOf("33DBF0"));
-                            arc4.setStrokeWidth(20);
-                            arc4.setFill(Color.TRANSPARENT);
+
                             Image image =new Image("star.png");
+
                             javafx.scene.image.ImageView star =new javafx.scene.image.ImageView(image);
                             star.setFitHeight(40);
                             star.setFitWidth(40);
                             star.setX(280);
                             star.setY(800*(count[0]+1)-350);
+                            starlist.add(star);
+                            Image clrimage =new Image("colorswitch.png");
+                            javafx.scene.image.ImageView clrswitch =new javafx.scene.image.ImageView(clrimage);
+                            clrlist.add(clrswitch);
+                            clrswitch.setFitHeight(40);
+                            clrswitch.setFitWidth(40);
+                            clrswitch.setX(280);
+                            clrswitch.setY(800*(count[0]+1)-50);
                             Group arcs = new Group(arc, arc2, arc3, arc4);
                             arcs.setTranslateX(BALL.getTranslateX());
 //                            arcs.setTranslateY(BALL.getTranslateY());
                             arcs.setTranslateY(800*(count[0]+1)-500);
                             main.getChildren().add(star);
                             main.getChildren().add(arcs);
+                            main.getChildren().add(clrswitch);
                             RotateTransition rotate = new RotateTransition();
                             RotateTransition Starrotate = new RotateTransition();
                             //Setting Axis of rotation
@@ -160,11 +179,26 @@ public class Vboxtrial implements Initializable {
                             }
                         }
                     }
-//                if(star.intersects(BALL.getLayoutBounds())){
-//                   // star.
-//                    System.out.println("INTERSECTING");
-//                   // main.getChildren().removeAll(star);
-//                }
+                    for(javafx.scene.image.ImageView I: starlist)
+                    {
+                        if (BALL.getBoundsInParent().intersects(I.getBoundsInParent())) {
+                            System.out.println("intersect");
+                            main.getChildren().remove(I);
+                            pointcount+=1;
+                            POINTS.setText("POINTS: "+pointcount);
+                        }
+
+                    }
+                    for(javafx.scene.image.ImageView I: clrlist)
+                    {
+                        if (BALL.getBoundsInParent().intersects(I.getBoundsInParent())) {
+                            System.out.println("intersect");
+                            main.getChildren().remove(I);
+                            BALL.setFill(Paint.valueOf(colors.get(random.nextInt(4))));
+                        }
+
+                    }
+
                 if(BALL.getLayoutY()-100>baseline&&count[0]!=1){
                     System.out.println("OUT OF BOUNDS");
                     Platform.exit();
@@ -179,81 +213,6 @@ public class Vboxtrial implements Initializable {
 
     }
 
-//    public void keyPressed(KeyEvent event) {
-//        // Ball.setTranslateX(200);
-//        // System.out.println("HELLO");
-//
-//
-//        if (event.getCode() == KeyCode.UP) {
-//
-//            newY = newY - 50;
-//            BALL.setTranslateY(newY);
-//
-//
-//        }
-////        this.DistTravelled=0;
-////        if((this.baseline-this.newY)>1){
-////            System.out.println(" base--"+baseline);
-////            this.DistTravelled=this.baseline-this.newY;
-////            this.baseline-=this.DistTravelled;
-////
-////            System.out.println(" Dist Travelled--"+DistTravelled);
-////            System.out.println(" NEW Y--"+newY);
-////            main.setTranslateY(main.getTranslateY()+this.DistTravelled);
-////            if(newY%500==0){
-////                Arc arc = new Arc(300,150,100,100,0,90);
-////                arc.setStroke(Color.valueOf("FF0181"));
-////                arc.setStrokeWidth(20);
-////                arc.setFill(Color.TRANSPARENT);
-////
-////                Arc arc2 = new Arc(300, 150, 100, 100, 90, 90);
-////                arc2.setStroke(Color.valueOf("FBE100"));
-////                arc2.setStrokeWidth(20);
-////                arc2.setFill(Color.TRANSPARENT);
-////
-////                Arc arc3 = new Arc(300, 150, 100, 100, 180, 90);
-////                arc3.setStroke(Color.valueOf("910DFF"));
-////                arc3.setStrokeWidth(20);
-////                arc3.setFill(Color.TRANSPARENT);
-////
-////                Arc arc4 = new Arc(300, 150, 100, 100, 270, 90);
-////                ArrayList<Shape> a;
-////                a = new ArrayList<>();
-////                a.add(arc);
-////                a.add(arc2);
-////                a.add(arc3);
-////                a.add(arc4);
-////                arc4.setStroke(Color.valueOf("33DBF0"));
-////                arc4.setStrokeWidth(20);
-////                arc4.setFill(Color.TRANSPARENT);
-////                Image image =new Image("star.png");
-////                javafx.scene.image.ImageView star =new javafx.scene.image.ImageView(image);
-////                star.setFitHeight(40);
-////                star.setFitWidth(40);
-////                star.setX(280+BALL.getTranslateX());
-////                star.setY(120+BALL.getTranslateY());
-////                Group arcs = new Group(arc, arc2, arc3, arc4);
-////                arcs.setTranslateX(BALL.getTranslateX());
-////                arcs.setTranslateY(BALL.getTranslateY());
-////                main.getChildren().add(star);
-////                main.getChildren().add(arcs);
-////                RotateTransition rotate = new RotateTransition();
-////                //Setting Axis of rotation
-////                rotate.setAxis(Rotate.Z_AXIS);
-////
-////                rotate.setByAngle(360);
-////
-////                rotate.setCycleCount(500);
-////
-////                rotate.setDuration(Duration.millis(2000));
-////                rotate.setNode(arcs);
-////
-////                //playing the transition
-////                rotate.play();
-////            }
-////        }
-//
-//
-//    }
+
 
 }
