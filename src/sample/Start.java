@@ -102,7 +102,7 @@ public class Start implements Initializable {
                             else{
                                 count[0] = count[0] -1;
                             }
-                            switch(1+random.nextInt(10)){
+                            switch(2){
                                 case 1: Obstacles circle=new sample.Circle();
                                         circle.InitiateObstacle(starlist,shapes,count,main);
                                         break;
@@ -188,11 +188,27 @@ public class Start implements Initializable {
                         if (BALL.getBoundsInParent().intersects(I.getBoundsInParent())) {
                            // System.out.println("intersect");
                             main.getChildren().remove(I);
-                            Paint ball= BALL.getFill();
-                            System.out.println(ball.hashCode());
+//                            String temp="";
+//                            for(String p : colors){
+//                                if(p.equals(BALL.getFill()))
+//                                {   temp=p;
+//
+//                            }colors.remove(p);
+//                        }
+
+                           //System.out.println(BALL.getFill().hashCode());
                           // colors.remove(colors.indexOf(ball));
-                            BALL.setFill(Paint.valueOf(colors.get(random.nextInt(3))));
+                            Paint color=BALL.getFill();
+                            Paint Ballcolour= BALL.getFill();
+                            while(Ballcolour.equals(BALL.getFill())){
+                                color=Paint.valueOf(colors.get(random.nextInt(4)));
+                                BALL.setFill(color);
+                            }
+
                            // colors.add(ball.toString());
+//                            if(!temp.isEmpty()){
+//                                colors.add(temp);
+//                            }
 
 
 

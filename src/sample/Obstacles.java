@@ -51,12 +51,12 @@ class Square extends Obstacles{
         line4.setStroke(Color.valueOf("33DBF0"));
         line4.setStrokeWidth(20);
         star.setX(280);
-        star.setY(800*(count[0]+1)-220);
+        star.setY(800*(count[0]+1)-270);
         starlist.add(star);
 
         Group square = new Group(line, line2, line3, line4);
         square.setTranslateX(0);
-        square.setTranslateY(800*(count[0]+1)-500);
+        square.setTranslateY(800*(count[0]+1)-550);
         RotateTransition Starrotate = new RotateTransition();
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
@@ -127,6 +127,7 @@ class Circle extends Obstacles{
         rotate.setDuration(Duration.millis(5000));
         rotate.setNode(arcs);
         Starrotate.setNode(star);
+        Starrotate.setCycleCount(500);
         //playing the transition
         rotate.play();
         Starrotate.play();
@@ -193,6 +194,7 @@ class DoubleVCircle extends Obstacles{
         starlist.add(star);
         star.setX(280);
         star.setY(800*(count[0]+1)-400);
+        Starrotate.setCycleCount(500);
         main.getChildren().add(star);
         Group circle1 = new Group(arc, arc2, arc3, arc4);
         Group circle2=new Group (arc5,arc6,arc7,arc8);
@@ -287,6 +289,7 @@ class DoubleHCircle extends Obstacles{
         Starrotate.setCycleCount(500);
         Starrotate.play();
         starlist.add(star);
+        Starrotate.setCycleCount(500);
         star.setX(280);
         star.setY(800*(count[0]+1)-500);
         main.getChildren().add(star);
@@ -345,6 +348,7 @@ class RotatingX extends Obstacles{
         rotate.setDuration(Duration.millis(5000));
         rotate.setNode(cross);
         rotate.play();
+        Starrotate.setCycleCount(500);
        // System.out.println(cross.getLayoutY());
         cross.setTranslateX(0);
         cross.setTranslateY(800*(count[0]+1)-500);
