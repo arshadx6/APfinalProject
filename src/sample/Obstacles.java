@@ -30,7 +30,13 @@ public abstract class Obstacles {
     }
     abstract void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a,int count[],AnchorPane main);
 
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
 
+    public int getSpeed() {
+        return speed;
+    }
 }
 class Square extends Obstacles{
     @Override
@@ -69,7 +75,11 @@ class Square extends Obstacles{
         rotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         rotate.setCycleCount(500);
-        rotate.setDuration(Duration.millis(5000));
+        if(count[0]%2==0){
+            setSpeed(getSpeed()+1);
+
+        }
+        rotate.setDuration(Duration.millis(5000-speed*150));
         rotate.setNode(square);
         rotate.play();
         main.getChildren().add(square);
@@ -365,43 +375,43 @@ class ConcCircle extends Obstacles{
 
     @Override
     void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
-        Arc cc1 = new Arc(300,150,100,100,45,90);
+        Arc cc1 = new Arc(300,150,130,130,45,90);
         cc1.setStroke(Color.valueOf("FF0181"));
         cc1.setStrokeWidth(20);
         cc1.setFill(Color.TRANSPARENT);
 
-        Arc cc2 = new Arc(300, 150, 100, 100, 135, 90);
+        Arc cc2 = new Arc(300, 150, 130, 130, 135, 90);
         cc2.setStroke(Color.valueOf("FBE100"));
         cc2.setStrokeWidth(20);
         cc2.setFill(Color.TRANSPARENT);
 
-        Arc cc3 = new Arc(300, 150, 100, 100, 225, 90);
+        Arc cc3 = new Arc(300, 150, 130, 130, 225, 90);
         cc3.setStroke(Color.valueOf("910DFF"));
         cc3.setStrokeWidth(20);
         cc3.setFill(Color.TRANSPARENT);
 
-        Arc cc4 = new Arc(300, 150, 100, 100, 315, 90);
+        Arc cc4 = new Arc(300, 150, 130, 130, 315, 90);
         cc4.setStroke(Color.valueOf("33DBF0"));
         cc4.setStrokeWidth(20);
         cc4.setFill(Color.TRANSPARENT);
 
-        Arc cc5 = new Arc(300,150,70,70,45,90);
+        Arc cc5 = new Arc(300,150,100,100,45,90);
         cc5.setStroke(Color.valueOf("FF0181"));
         cc5.setStrokeWidth(20);
         cc5.setFill(Color.TRANSPARENT);
 
-        Arc cc6 = new Arc(300, 150, 70, 70, 135, 90);
-        cc6.setStroke(Color.valueOf("FBE100"));
+        Arc cc6 = new Arc(300, 150, 100, 100, 135, 90);
+        cc6.setStroke(Color.valueOf("33DBF0"));
         cc6.setStrokeWidth(20);
         cc6.setFill(Color.TRANSPARENT);
 
-        Arc cc7 = new Arc(300, 150, 70, 70, 225, 90);
+        Arc cc7 = new Arc(300, 150, 100, 100, 225, 90);
         cc7.setStroke(Color.valueOf("910DFF"));
         cc7.setStrokeWidth(20);
         cc7.setFill(Color.TRANSPARENT);
 
-        Arc cc8 = new Arc(300, 150, 70, 70, 315, 90);
-        cc8.setStroke(Color.valueOf("33DBF0"));
+        Arc cc8 = new Arc(300, 150, 100, 100, 315, 90);
+        cc8.setStroke(Color.valueOf("FBE100"));
         cc8.setStrokeWidth(20);
         cc8.setFill(Color.TRANSPARENT);
 

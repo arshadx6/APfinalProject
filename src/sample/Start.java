@@ -3,11 +3,15 @@ package sample;
 import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
 import javafx.animation.*;
 import javafx.application.Platform;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -20,11 +24,13 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import javax.naming.event.ObjectChangeListener;
 import javax.swing.*;
 import javax.swing.text.html.ImageView;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +53,16 @@ public class Start implements Initializable {
     double baseline=600;
     int pointcount=0;
     Random random=new Random();
+    public void changescreen() throws IOException {
+        Stage stage = (Stage) main.getScene().getWindow();
+        stage.close();
+        Stage primaryStage =new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("PauseGame.fxml"));
+        primaryStage.setTitle("new");
+        primaryStage.setScene(new Scene(root,600,800));
+        root.requestFocus();
+        primaryStage.show();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //V.setAlignment(Pos.BOTTOM_CENTER);
@@ -102,7 +118,7 @@ public class Start implements Initializable {
                             else{
                                 count[0] = count[0] -1;
                             }
-                            switch(2){
+                            switch(2){//1+random.nextInt(10)
                                 case 1: Obstacles circle=new sample.Circle();
                                         circle.InitiateObstacle(starlist,shapes,count,main);
                                         break;
@@ -165,8 +181,23 @@ public class Start implements Initializable {
                         Shape intersect = Shape.intersect(s, BALL);
                         if (intersect.getBoundsInLocal().getWidth() != -1) {
                             if (!s.getStroke().equals(BALL.getFill())){
-                                
-                                Platform.exit();
+
+                                Circle bomb = new Circle(0, BALL.getFill());
+                                main.getChildren().add(bomb);
+                                bomb.relocate(BALL.getLayoutX(),BALL.getLayoutY());
+                                KeyValue blast=new KeyValue(bomb.radiusProperty(),800,Interpolator.EASE_IN);
+                                KeyFrame explosion=new KeyFrame(Duration.seconds(2),blast);
+                                Timeline t = new Timeline(explosion);
+                                t.play();
+                                t.setOnFinished(actionEvent -> {
+                                    try {
+                                        changescreen();
+                                    } catch (IOException ex) {
+                                        ex.printStackTrace();
+                                    }
+                                });
+
+
                             }
                         }
                     }
@@ -186,18 +217,7 @@ public class Start implements Initializable {
                     for(javafx.scene.image.ImageView I: clrlist)
                     {   if(main.getChildren().contains(I)){
                         if (BALL.getBoundsInParent().intersects(I.getBoundsInParent())) {
-                           // System.out.println("intersect");
                             main.getChildren().remove(I);
-//                            String temp="";
-//                            for(String p : colors){
-//                                if(p.equals(BALL.getFill()))
-//                                {   temp=p;
-//
-//                            }colors.remove(p);
-//                        }
-
-                           //System.out.println(BALL.getFill().hashCode());
-                          // colors.remove(colors.indexOf(ball));
                             Paint color=BALL.getFill();
                             Paint Ballcolour= BALL.getFill();
                             while(Ballcolour.equals(BALL.getFill())){
