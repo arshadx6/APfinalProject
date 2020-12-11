@@ -9,28 +9,28 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PauseGame">
    <children>
-      <ImageView fitHeight="500.0" fitWidth="400.0">
+      <ImageView fitHeight="800.0" fitWidth="600.0">
          <image>
             <Image url="screen.PNG" />
          </image>
       </ImageView>
-      <ImageView fitHeight="68.0" fitWidth="140.0" layoutX="131.0" layoutY="102.0">
+      <ImageView fitHeight="68.0" fitWidth="140.0" layoutX="235.0" layoutY="216.0">
          <image>
             <Image url="Resume.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="68.0" fitWidth="200.0" layoutX="101.0" layoutY="216.0">
+      <ImageView fitHeight="68.0" fitWidth="200.0" layoutX="200.0" layoutY="382.0">
          <image>
             <Image url="Saveandexit.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="68.0" fitWidth="78.0" layoutX="161.0" layoutY="314.0">
+      <ImageView fitHeight="68.0" fitWidth="78.0" layoutX="262.0" layoutY="522.0">
          <image>
             <Image url="Exit.png" />
          </image>
       </ImageView>
-      <Button fx:id="Resume" layoutX="122.0" layoutY="111.0" mnemonicParsing="false" onAction="#resumeButton" opacity="0.0" prefHeight="51.0" prefWidth="148.0" text="Button" />
-      <Button fx:id="SaveExit" layoutX="100.0" layoutY="216.0" mnemonicParsing="false" opacity="0.0" prefHeight="68.0" prefWidth="192.0" text="Button" />
-      <Button fx:id="Exit" layoutX="146.0" layoutY="323.0" mnemonicParsing="false" opacity="0.0" prefHeight="51.0" prefWidth="99.0" text="Button" />
+      <Button fx:id="Resume" layoutX="226.0" layoutY="225.0" mnemonicParsing="false" onAction="#resumeButton" opacity="0.0" prefHeight="51.0" prefWidth="148.0" text="Button" />
+      <Button fx:id="SaveExit" layoutX="204.0" layoutY="366.0" mnemonicParsing="false" opacity="0.0" prefHeight="68.0" prefWidth="192.0" text="Button" />
+      <Button fx:id="Exit" layoutX="251.0" layoutY="530.0" mnemonicParsing="false" opacity="0.0" prefHeight="51.0" prefWidth="99.0" text="Button" />
    </children>
 </AnchorPane>

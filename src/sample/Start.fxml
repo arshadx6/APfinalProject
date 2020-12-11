@@ -20,6 +20,12 @@
                   <Font name="Cambria Bold Italic" size="17.0" />
                </font>
             </Text>
+            <ImageView fx:id="pImage" fitHeight="48.0" fitWidth="56.0" layoutX="530.0" layoutY="10.0">
+               <image>
+                  <Image url="pause.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="pause" layoutX="526.0" mnemonicParsing="false" onAction="#changescreen" opacity="0.0" prefHeight="64.0" prefWidth="65.0" text="Button" />
          </children>
       </AnchorPane>
   </content>

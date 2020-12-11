@@ -54,6 +54,7 @@
                </font>
             </Button>
             <Button layoutX="90.0" layoutY="643.0" mnemonicParsing="false" onAction="#exit" opacity="0.0" prefHeight="69.0" prefWidth="430.0" text="Exit Game" />
+            <Text fx:id="HighScore" layoutX="523.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
          </children>
       </Pane>
    </children>

@@ -73,13 +73,13 @@ class Square extends Obstacles{
         Starrotate.setCycleCount(500);
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
-        rotate.setByAngle(360);
+        rotate.setByAngle(360*10);
         rotate.setCycleCount(500);
         if(count[0]%2==0){
             setSpeed(getSpeed()+1);
 
         }
-        rotate.setDuration(Duration.millis(5000-speed*150));
+        rotate.setDuration(Duration.millis(50000-speed*150));
         rotate.setNode(square);
         rotate.play();
         main.getChildren().add(square);

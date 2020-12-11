@@ -11,14 +11,19 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
+import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 public class screen2
-{
+implements Serializable {
     @FXML
     ImageView CircleImage;
     @FXML
@@ -37,13 +42,17 @@ public class screen2
     Button Resume;
     @FXML
     Button Help;
-
-    public void initialize(){
+    @FXML
+    Text HighScore;
+    public void initialize() throws IOException, ClassNotFoundException {
         //Circle circle = new Circle(1);
         RotateTransition rotate = new RotateTransition();
         //Setting Axis of rotation
         rotate.setAxis(Rotate.Z_AXIS);
-
+        Start s = new Start();
+        int score=s.loadHighScore(new File("Highscore.txt"));
+        HighScore.setText("High Score:"+score);
+        HighScore.setFont(Font.font(""));
         // setting the angle of rotation
         rotate.setByAngle(360);
 
