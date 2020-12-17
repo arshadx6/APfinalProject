@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.NoStars"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="Back" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: 272727;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NoStars">
+   <children>
+      <Text fill="WHITE" layoutX="53.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOT ENOUGH POINTS TO REVIVE" wrappingWidth="294.24609375">
+         <font>
+            <Font name="Britannic Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="190.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OK">
+         <font>
+            <Font name="Britannic Bold" size="16.0" />
+         </font>
+      </Text>
+      <Button layoutX="168.0" layoutY="281.0" mnemonicParsing="false" onAction="#changescreen" opacity="0.0" text="Button" />
+   </children>
 </AnchorPane>

@@ -22,28 +22,24 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ResumeGame implements Initializable {
+
     @FXML
-    Button Back;
+    private Button Back;
     @FXML
-    Text Player1;
+    private Text Player1;
     @FXML
-    Text Player2;
+    private Text Player2;
     @FXML
-    Text Player3;
+    private Text Player3;
+
     @FXML
-    Button b1;
+    private Text Saved;
     @FXML
-    Button b2;
+    private AnchorPane bg;
     @FXML
-    Button b3;
-    @FXML
-    Text Saved;
-    @FXML
-    AnchorPane bg;
-    @FXML
-    ImageView bImage;
-   static Start s;
-   static Main mainapp;
+    private ImageView bImage;
+  private static Start s;
+   private static Main mainapp;
 
     public void setMainapp(Main mainapp) {
         this.mainapp = mainapp;

@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller {
     @FXML
     private Button Start;
     @FXML
@@ -36,41 +36,4 @@ public class Controller implements Initializable {
         primaryStage.show();
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Arc arc = new Arc(300,150,100,100,0,90);
-//        arc.setStroke(Color.valueOf("FF0181"));
-//        arc.setStrokeWidth(20);
-//        arc.setFill(Color.TRANSPARENT);
-//
-//        Arc arc2 = new Arc(300, 150, 100, 100, 90, 90);
-//        arc2.setStroke(Color.valueOf("FBE100"));
-//        arc2.setStrokeWidth(20);
-//        arc2.setFill(Color.TRANSPARENT);
-//
-//        Arc arc3 = new Arc(300, 150, 100, 100, 180, 90);
-//        arc3.setStroke(Color.valueOf("910DFF"));
-//        arc3.setStrokeWidth(20);
-//        arc3.setFill(Color.TRANSPARENT);
-//
-//        Arc arc4 = new Arc(300, 150, 100, 100, 270, 90);
-//        arc4.setStroke(Color.valueOf("33DBF0"));
-//        arc4.setStrokeWidth(20);
-//        arc4.setFill(Color.TRANSPARENT);
-//        Group arcs = new Group(arc, arc2, arc3, arc4);
-//        RotateTransition rotate = new RotateTransition();
-//        rotate.setAxis(Rotate.Z_AXIS);
-//        arcs.setTranslateY(350);
-//        arcs.setTranslateX(0);
-//        rotate.setByAngle(360);
-//
-//        rotate.setCycleCount(500);
-//        main.getChildren().add(arcs);
-//        rotate.setDuration(Duration.millis(5000));
-//        rotate.setNode(arcs);
-//
-//        //playing the transition
-//        rotate.play();
-    }
 }

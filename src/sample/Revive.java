@@ -22,7 +22,7 @@ import java.time.format.TextStyle;
 import java.util.ResourceBundle;
 
 public class Revive implements Initializable ,Serializable{
-    static Start s;
+    private static Start s;
 
     public void setS(Start s) {
         this.s = s;
@@ -33,17 +33,17 @@ public class Revive implements Initializable ,Serializable{
     }
 
     @FXML
-    AnchorPane main;
+    private AnchorPane main;
     @FXML
-    Button Revive;
+    private Button Revive;
     @FXML
-    Button Exit;
+    private Button Exit;
     @FXML
-    Text Stars;
+    private Text Stars;
     @FXML
-    Text Stars1;
+    private Text Stars1;
     @FXML
-    ImageView star;
+    private ImageView star;
     public void changescreen() throws IOException {
         Stage stage = (Stage) main.getScene().getWindow();
         stage.close();
@@ -55,12 +55,13 @@ public class Revive implements Initializable ,Serializable{
         primaryStage.show();
     }
     public void Revive() throws IOException, ClassNotFoundException {
-        Stage stage = (Stage) Stars.getScene().getWindow();
-        stage.close();
-        Stage primaryStage =new Stage();
+
 
 
         if(s.getpoints(new File("Points.txt"))>=10){
+            Stage stage = (Stage) Revive.getScene().getWindow();
+            stage.close();
+            Stage primaryStage =new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("Start.fxml"));
             s.addpoints(new File("Points.txt"),-10);
             try{
@@ -75,11 +76,19 @@ public class Revive implements Initializable ,Serializable{
             primaryStage.show();
         }
        else{
-            Parent root = FXMLLoader.load(getClass().getResource("2ndScreen.fxml"));
+            Stage stage = (Stage) Revive.getScene().getWindow();
+            stage.close();
+            Stage primaryStage =new Stage();
+            Parent root1 = FXMLLoader.load(getClass().getResource("NoStars.fxml"));
             primaryStage.setTitle("new");
-            primaryStage.setScene(new Scene(root,600,800));
-            root.requestFocus();
+            primaryStage.setScene(new Scene(root1,400,400));
+            root1.requestFocus();
             primaryStage.show();
+//            Parent root = FXMLLoader.load(getClass().getResource("2ndScreen.fxml"));
+//            primaryStage.setTitle("new");
+//            primaryStage.setScene(new Scene(root,600,800));
+//            root.requestFocus();
+//            primaryStage.show();
         }
     }
 

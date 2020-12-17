@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class SelectBalls {
     @FXML
-    Rectangle rect;
+    private Rectangle rect;
 
 
 

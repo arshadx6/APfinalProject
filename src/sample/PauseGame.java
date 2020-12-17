@@ -17,20 +17,20 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PauseGame implements Serializable {
-    static Start temp=new Start();
+    private static Start temp=new Start();
 
     public static void setTemp(Start temp) {
         PauseGame.temp = temp;
     }
 
     @FXML
-    Button Resume;
+    private Button Resume;
     @FXML
-    Button Exit;
+    private Button Exit;
     @FXML
-    Button SaveExit;
+    private Button SaveExit;
     @FXML
-    AnchorPane bg;
+    private AnchorPane bg;
     public void changescreen() throws IOException, ClassNotFoundException {
         Stage stage = (Stage) Resume.getScene().getWindow();
         stage.close();

@@ -28,25 +28,25 @@ import java.io.Serializable;
 
 public class screen2 implements Serializable {
     @FXML
-    ImageView CircleImage;
+    private ImageView CircleImage;
     @FXML
-    AnchorPane Back;
+    private AnchorPane Back;
     @FXML
-    ImageView StartImage;
+    private ImageView StartImage;
     @FXML
-    ImageView ResumeImage;
+    private ImageView ResumeImage;
     @FXML
-    ImageView ExitImage;
+    private ImageView ExitImage;
     @FXML
-    ImageView HelpImage;
+    private ImageView HelpImage;
     @FXML
-    Button Start;
+    private Button Start;
     @FXML
-    Button Resume;
+    private Button Resume;
     @FXML
-    Button Help;
+    private Button Help;
     @FXML
-    Text HighScore;
+    private Text HighScore;
     public void initialize() throws IOException, ClassNotFoundException {
         //Circle circle = new Circle(1);
         Back.setStyle("-fx-background: #" + "272727");

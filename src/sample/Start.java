@@ -33,14 +33,30 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 class ListofSerializable implements Serializable{
-    int pointcount;
-    int[] difficulty;
-    double baseline;
-    double ballpos;
-    String color;
-    int nextobs;
-    static int Gamenumber;
-    int gameid;
+    private int pointcount;
+
+    public int getPointcount() {
+        return pointcount;
+    }
+
+    private int[] difficulty;
+
+    public int[] getDifficulty() {
+        return difficulty;
+    }
+
+    private double baseline;
+   private double ballpos;
+    private String color;
+
+    public String getColor() {
+        return color;
+    }
+
+    private int nextobs;
+
+    private static int Gamenumber;
+    private int gameid;
 
     public void setGameid(int gameid) {
         this.gameid = gameid;
@@ -66,7 +82,7 @@ class ListofSerializable implements Serializable{
         this.nextobs = nextobs;
     }
 
-    static ArrayList<Start> games = new ArrayList<>();
+    private static ArrayList<Start> games = new ArrayList<>();
     public void setDifficulty(int[] difficulty) {
         this.difficulty = difficulty;
     }
@@ -93,20 +109,24 @@ class ListofSerializable implements Serializable{
 }
 public class Start implements Initializable , Serializable {
     @FXML
-    transient Circle BALL;
+   private transient Circle BALL;
     @FXML
-    transient ScrollPane Scroll;
+    private transient ScrollPane Scroll;
     @FXML
-    transient AnchorPane main;
+    private transient AnchorPane main;
     @FXML
-    transient Text POINTS;
+    private transient Text POINTS;
     @FXML
-    transient Button pause;
+    private transient Button pause;
     @FXML
-    transient ImageView pImage;
+    private transient ImageView pImage;
     static private Main mainapp;
-    static Start tempgame;
-
+    static private Start tempgame;
+    public void killPlayer() throws IOException, ClassNotFoundException {
+        addpoints(new File("Points.txt"),getPointcount());
+        saveRevive(new File("Revive.txt"));
+        changetoRevive();
+    }
     public static Start getTempgame() {
         return tempgame;
     }
@@ -127,17 +147,17 @@ public class Start implements Initializable , Serializable {
         this.nextobs = nextobs;
     }
 
-    double newY = 0;
+    private double newY = 0;
    // Circle BALL = new Circle(100);
-    double DistTravelled=0;
-    double baseline=600;
-    int pointcount=0;
-    double ballpos=0;
-    int[] difficulty={1};
-    int[] count={1};
-    Paint color;
-    int currobs=1;
-    int nextobs=1;
+   private double DistTravelled=0;
+    private double baseline=600;
+    private int pointcount=0;
+    private double ballpos=0;
+    private int[] difficulty={1};
+    private int[] count={1};
+    private Paint color;
+    private int currobs=1;
+    private int nextobs=1;
     public void setCurrObsNumber(int currobs) {
         this.currobs = currobs;
     }
@@ -424,9 +444,7 @@ public class Start implements Initializable , Serializable {
                                 t.play();
                                 t.setOnFinished(actionEvent -> {
                                     try {
-                                        addpoints(new File("Points.txt"),getPointcount());
-                                        saveRevive(new File("Revive.txt"));
-                                        changetoRevive();
+                                        killPlayer();
                                         //changescreen();
 
                                     } catch (IOException | ClassNotFoundException ex) {
@@ -480,9 +498,7 @@ public class Start implements Initializable , Serializable {
                         System.out.println("HAPPENING");
                        // System.out.println("BASERLINE"+getBaseline());
                         try {
-                            addpoints(new File("Points.txt"),getPointcount());
-                            saveRevive(new File("Revive.txt"));
-                            changetoRevive();
+                            killPlayer();
                         } catch (IOException | ClassNotFoundException ex) {
                             ex.printStackTrace();
                         }
@@ -557,17 +573,17 @@ public class Start implements Initializable , Serializable {
                 // System.out.println(objects.gameid+"GAME ID FROM LOAD");
                 System.out.println("THIS HAS x GAMES");
                 ListofSerializable game=objects.get(i-1);
-                getGame().setNextobs(game.nextobs);
+                getGame().setNextobs(game.getNextobs());
 //                    System.out.println("OBJECT"+objects.ballpos);
 //                    System.out.println("OBJECTbasw"+objects.baseline);
 //                    System.out.println("GET"+objects.getNextobs());
 //                    System.out.println(Paint.valueOf(objects.color));
-                getGame().setDifficulty(game.difficulty);
+                getGame().setDifficulty(game.getDifficulty());
                 System.out.println("DIFFU"+difficulty[0]);
-                getGame().setPointcount(game.pointcount);
+                getGame().setPointcount(game.getPointcount());
                 getGame().setBallpos(this.ballpos-100);
                 getGame().BALL.setTranslateY(getBallpos());
-                getGame().setColor(Paint.valueOf(game.color));
+                getGame().setColor(Paint.valueOf(game.getColor()));
                 getGame().getBALL().setFill(getColor());
                 getGame().POINTS.setText("POINTS : "+ pointcount);
 //                    System.out.println("After SETTING");
@@ -635,11 +651,11 @@ public class Start implements Initializable , Serializable {
         finally {
             objectStream.close();
         }
-        getGame().setDifficulty(game.difficulty);
-        getGame().setPointcount(game.pointcount);
+        getGame().setDifficulty(game.getDifficulty());
+        getGame().setPointcount(game.getPointcount());
         getGame().setBallpos(this.ballpos-100);
-        getGame().setNextobs(game.nextobs);
-        getGame().setColor(Paint.valueOf(game.color));
+        getGame().setNextobs(game.getNextobs());
+        getGame().setColor(Paint.valueOf(game.getColor()));
 
         System.out.println("DIFFUCULTY"+getDifficulty()[0]);
         System.out.println("PC"+getPointcount());

@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class Main extends Application implements Serializable {
 
-    ArrayList<Start> Games=new ArrayList<>();
-    static int HighScore;
-    static int Pointpool;
+    private ArrayList<Start> Games=new ArrayList<>();
+    private static int HighScore;
+    private static int Pointpool;
     public int getHighScore() {
         return HighScore;
     }
