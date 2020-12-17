@@ -10,7 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
@@ -22,12 +26,11 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class screen2
-implements Serializable {
+public class screen2 implements Serializable {
     @FXML
     ImageView CircleImage;
     @FXML
-    ImageView Back;
+    AnchorPane Back;
     @FXML
     ImageView StartImage;
     @FXML
@@ -46,18 +49,22 @@ implements Serializable {
     Text HighScore;
     public void initialize() throws IOException, ClassNotFoundException {
         //Circle circle = new Circle(1);
+        Back.setStyle("-fx-background: #" + "272727");
         RotateTransition rotate = new RotateTransition();
         //Setting Axis of rotation
         rotate.setAxis(Rotate.Z_AXIS);
         Start s = new Start();
+        //Scroll.setStyle("-fx-background: #" + "272727");
         int score=s.loadHighScore(new File("Highscore.txt"));
-        HighScore.setText("High Score:"+score);
-        HighScore.setFont(Font.font(""));
+        HighScore.setText("High Score: "+score);
+        HighScore.setFill(Color.WHITE);
+    //    String x=Color.YELLOW.toString();
+      //  HighScore.setFill(Paint.valueOf(x));
         // setting the angle of rotation
         rotate.setByAngle(360);
 
         //setting cycle count of the rotation
-        rotate.setCycleCount(500);
+        rotate.setCycleCount(Integer.MAX_VALUE);
 
         //Setting duration of the transition
         rotate.setDuration(Duration.millis(700));
@@ -68,21 +75,38 @@ implements Serializable {
         //setting Rectangle as the node onto which the
 // transition will be applied
         rotate.setNode(CircleImage);
-
         //playing the transition
         rotate.play();
+        RotateTransition Starrotate = new RotateTransition();
+        Starrotate.setAxis(Rotate.Z_AXIS);
+        Starrotate.setByAngle(360);
+        Starrotate.setDuration(Duration.millis(5000));
+        Starrotate.setCycleCount(500);
+        Starrotate.setNode(HelpImage);
+
+        Starrotate.play();
 
     }
     public void changescreen() throws IOException {
     Stage stage = (Stage) Start.getScene().getWindow();
     stage.close();
     Stage primaryStage =new Stage();
-    Parent root = FXMLLoader.load(getClass().getResource("StartGame.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("Start.fxml"));
     primaryStage.setTitle("new");
     primaryStage.setScene(new Scene(root,600,800));
     root.requestFocus();
     primaryStage.show();
 }
+    public void Balls() throws IOException {
+        Stage stage = (Stage) Start.getScene().getWindow();
+        stage.close();
+        Stage primaryStage =new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("SelectBalls.fxml"));
+        primaryStage.setTitle("new");
+        primaryStage.setScene(new Scene(root,600,800));
+        root.requestFocus();
+        primaryStage.show();
+    }
     public void Resumescreen() throws IOException {
         Stage stage = (Stage) Start.getScene().getWindow();
         stage.close();

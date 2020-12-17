@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,29 +8,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResumeGame">
+<AnchorPane fx:id="bg" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ResumeGame">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="600.0">
-         <image>
-            <Image url="screen.PNG" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="87.0" fitWidth="378.0" layoutX="112.0" layoutY="276.0">
-         <image>
-            <Image url="nosaved.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="58.0" fitWidth="200.0" layoutX="200.0" layoutY="632.0" opacity="0.43">
          <image>
             <Image url="Selectgame.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="45.0" fitWidth="55.0">
+      <ImageView fx:id="bImage" fitHeight="45.0" fitWidth="55.0">
          <image>
             <Image url="backSymbol.png" />
          </image>
       </ImageView>
-      <Button layoutX="268.0" layoutY="645.0" mnemonicParsing="false" opacity="0.0" text="Button" />
+      <Text fx:id="Player1" fill="#969090" layoutX="217.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save file 1 Empty" textAlignment="CENTER" wrappingWidth="168.0">
+         <font>
+            <Font name="Verdana" size="15.0" />
+         </font></Text>
+      <Text fx:id="Player2" fill="#969090" layoutX="200.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save file 2 Empty" textAlignment="CENTER" wrappingWidth="200.0">
+         <font>
+            <Font name="Verdana" size="15.0" />
+         </font></Text>
+      <Text fx:id="Player3" fill="#969090" layoutX="200.0" layoutY="585.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Save file 3 Empty" textAlignment="CENTER" wrappingWidth="200.0">
+         <font>
+            <Font name="Verdana" size="15.0" />
+         </font></Text>
+      <Text fx:id="Saved" layoutX="95.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="411.6708984375" />
+      <Button fx:id="b1" layoutX="200.0" layoutY="437.0" mnemonicParsing="false" onAction="#changeStart1" opacity="0.0" prefHeight="31.0" prefWidth="200.0" text="Button" />
       <Button fx:id="Back" mnemonicParsing="false" onAction="#changescreen" opacity="0.0" prefHeight="53.0" prefWidth="65.0" text="Back" />
+      <Button fx:id="b2" layoutX="200.0" layoutY="504.0" mnemonicParsing="false" onAction="#changeStart2" opacity="0.0" prefHeight="31.0" prefWidth="200.0" text="Button" />
+      <Button fx:id="b3" layoutX="201.0" layoutY="564.0" mnemonicParsing="false" onAction="#changeStart3" opacity="0.0" prefHeight="31.0" prefWidth="200.0" text="Button">
+         <font>
+            <Font name="Verdana" size="15.0" />
+         </font></Button>
+      <Button layoutX="268.0" layoutY="645.0" mnemonicParsing="false" opacity="0.0" text="Button" />
    </children>
 </AnchorPane>

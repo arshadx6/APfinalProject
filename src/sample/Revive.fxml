@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="main" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Revive">
+   <children>
+      <ImageView fitHeight="118.0" fitWidth="200.0" layoutX="201.0" layoutY="554.0">
+         <image>
+            <Image url="Untitled-3.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="Stars" fill="#eeeeee" layoutX="14.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="Britannic Bold" size="34.0" />
+         </font></Text>
+      <ImageView fitHeight="156.0" fitWidth="287.0" layoutX="157.0" layoutY="330.0">
+         <image>
+            <Image url="Revive.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="star" fitHeight="78.0" fitWidth="81.0" layoutX="89.0" layoutY="14.0">
+         <image>
+            <Image url="star.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="Stars1" fill="#eeeeee" layoutX="157.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="287.0">
+         <font>
+            <Font name="Britannic Bold" size="34.0" />
+         </font>
+      </Text>
+      <Button fx:id="Exit" layoutX="219.0" layoutY="574.0" mnemonicParsing="false" onAction="#changescreen" opacity="0.0" prefHeight="78.0" prefWidth="164.0" text="Button" />
+      <Button fx:id="Revive" layoutX="137.0" layoutY="328.0" mnemonicParsing="false" onAction="#Revive" opacity="0.0" prefHeight="156.0" prefWidth="327.0" text="Button" />
+   </children>
+</AnchorPane>

@@ -8,15 +8,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="896.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screen2">
+<AnchorPane fx:id="Back" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.screen2">
    <children>
       <Pane prefHeight="800.0" prefWidth="600.0">
          <children>
-            <ImageView fx:id="Back" fitHeight="800.0" fitWidth="600.0">
-               <image>
-                  <Image url="screen.PNG" />
-               </image>
-            </ImageView>
             <ImageView fx:id="CircleImage" fitHeight="342.0" fitWidth="346.0" layoutX="128.0" layoutY="34.0" onDragDetected="#initialize">
                <image>
                   <Image url="circle.png" />
@@ -54,7 +49,11 @@
                </font>
             </Button>
             <Button layoutX="90.0" layoutY="643.0" mnemonicParsing="false" onAction="#exit" opacity="0.0" prefHeight="69.0" prefWidth="430.0" text="Exit Game" />
-            <Text fx:id="HighScore" layoutX="523.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="HighScore" layoutX="437.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font name="Gill Sans Ultra Bold" size="17.0" />
+               </font></Text>
+            <Button layoutY="740.0" mnemonicParsing="false" onAction="#Balls" prefHeight="53.0" prefWidth="81.0" text="Button" />
          </children>
       </Pane>
    </children>

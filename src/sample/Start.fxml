@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
@@ -14,7 +15,6 @@
   <content>
     <AnchorPane fx:id="main" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="600.0">
          <children>
-            <Circle fx:id="BALL" fill="#ff0181" layoutX="300.0" layoutY="773.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Text fx:id="POINTS" layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POINTS:" wrappingWidth="80.6708984375">
                <font>
                   <Font name="Cambria Bold Italic" size="17.0" />
@@ -26,6 +26,7 @@
                </image>
             </ImageView>
             <Button fx:id="pause" layoutX="526.0" mnemonicParsing="false" onAction="#changescreen" opacity="0.0" prefHeight="64.0" prefWidth="65.0" text="Button" />
+            <Circle fx:id="BALL" fill="DODGERBLUE" layoutX="300.0" layoutY="762.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          </children>
       </AnchorPane>
   </content>

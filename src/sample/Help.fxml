@@ -14,7 +14,7 @@
             <Image url="helpscreen.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="49.0" layoutX="6.0" layoutY="7.0">
+      <ImageView fx:id="bImage" fitHeight="40.0" fitWidth="49.0" layoutX="6.0" layoutY="7.0">
          <image>
             <Image url="backSymbol.png" />
          </image>

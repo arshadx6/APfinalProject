@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SelectBalls">
+   <children>
+      <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" fill="#ffadad" height="80.0" layoutX="69.0" layoutY="389.0" stroke="#ffadad" strokeType="INSIDE" width="80.0" />
+      <Text fill="WHITE" layoutX="467.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT" wrappingWidth="50.48284912109375">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="275.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT" wrappingWidth="50.48284912109375">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="84.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT" wrappingWidth="50.48284912109375">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="77.0" layoutY="517.0" mnemonicParsing="false" onAction="#color1" opacity="0.0" text="Button" />
+      <Button layoutX="268.0" layoutY="518.0" mnemonicParsing="false" onAction="#color2" opacity="0.0" text="Button" />
+      <Rectangle fx:id="rect1" arcHeight="5.0" arcWidth="5.0" fill="#610024" height="80.0" layoutX="261.0" layoutY="389.0" stroke="WHITE" strokeType="INSIDE" width="80.0" />
+      <Rectangle fx:id="rect11" arcHeight="5.0" arcWidth="5.0" fill="#c39800" height="80.0" layoutX="453.0" layoutY="389.0" stroke="WHITE" strokeType="INSIDE" width="80.0" />
+      <Button layoutX="460.0" layoutY="517.0" mnemonicParsing="false" onAction="#color3" opacity="0.0" text="Button" />
+   </children>
+</AnchorPane>

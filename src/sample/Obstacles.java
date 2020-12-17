@@ -28,7 +28,7 @@ public abstract class Obstacles {
         star.setFitHeight(40);
         star.setFitWidth(40);
     }
-    abstract void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a,int count[],AnchorPane main);
+    abstract void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a,int count[],AnchorPane main,int[] difficulty);
 
     public void setSpeed(int speed) {
         this.speed = speed;
@@ -40,7 +40,7 @@ public abstract class Obstacles {
 }
 class Square extends Obstacles{
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         Line line=new Line(200,200,400,200);
         line.setStroke(Color.valueOf("FF0181"));
         line.setStrokeWidth(20);
@@ -67,19 +67,17 @@ class Square extends Obstacles{
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
         Starrotate.setDuration(Duration.millis(5000));
+        Starrotate.setCycleCount(500);
         Starrotate.setNode(star);
         Starrotate.play();
         starlist.add(star);
-        Starrotate.setCycleCount(500);
+
         RotateTransition rotate = new RotateTransition();
         rotate.setAxis(Rotate.Z_AXIS);
-        rotate.setByAngle(360*10);
+        rotate.setByAngle(360);
         rotate.setCycleCount(500);
-        if(count[0]%2==0){
-            setSpeed(getSpeed()+1);
-
-        }
-        rotate.setDuration(Duration.millis(50000-speed*150));
+        setSpeed(difficulty[0]/2);
+        rotate.setDuration(Duration.millis(5000-speed*150));
         rotate.setNode(square);
         rotate.play();
         main.getChildren().add(square);
@@ -90,9 +88,9 @@ class Square extends Obstacles{
         a.add (line4);
     }
 }
-class Circle extends Obstacles{
+class Circles extends Obstacles{
 
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a,int count[],AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a,int count[],AnchorPane main,int[] difficulty) {
         Arc arc = new Arc(300,150,100,100,0,90);
         arc.setStroke(Color.valueOf("FF0181"));
         arc.setStrokeWidth(20);
@@ -132,12 +130,13 @@ class Circle extends Obstacles{
         Starrotate.setAxis(Rotate.Z_AXIS);
         rotate.setByAngle(360);
         Starrotate.setByAngle(360);
+        Starrotate.setCycleCount(500);
         rotate.setCycleCount(500);
         Starrotate.setDuration(Duration.millis(5000));
         rotate.setDuration(Duration.millis(5000));
         rotate.setNode(arcs);
         Starrotate.setNode(star);
-        Starrotate.setCycleCount(500);
+
         //playing the transition
         rotate.play();
         Starrotate.play();
@@ -146,7 +145,7 @@ class Circle extends Obstacles{
 class DoubleVCircle extends Obstacles{
 
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         Arc arc = new Arc(300,100,100,100,0,90);
         arc.setStroke(Color.valueOf("FF0181"));
         arc.setStrokeWidth(20);
@@ -197,14 +196,16 @@ class DoubleVCircle extends Obstacles{
         RotateTransition Starrotate = new RotateTransition();
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
-        Starrotate.setDuration(Duration.millis(5000));
-        Starrotate.setNode(star);
         Starrotate.setCycleCount(500);
-        Starrotate.play();
+        Starrotate.setDuration(Duration.millis(5000));
         starlist.add(star);
         star.setX(280);
         star.setY(800*(count[0]+1)-400);
-        Starrotate.setCycleCount(500);
+        Starrotate.setNode(star);
+
+
+        Starrotate.play();
+
         main.getChildren().add(star);
         Group circle1 = new Group(arc, arc2, arc3, arc4);
         Group circle2=new Group (arc5,arc6,arc7,arc8);
@@ -233,7 +234,7 @@ class DoubleVCircle extends Obstacles{
 class DoubleHCircle extends Obstacles{
 
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         //DOUBLE CIRCLE HORIZONTAL
         Arc arc = new Arc(190,150,100,100,0,90);
         arc.setStroke(Color.valueOf("FF0181"));
@@ -293,13 +294,12 @@ class DoubleHCircle extends Obstacles{
         main.getChildren().add(circle2);
         RotateTransition Starrotate = new RotateTransition();
         Starrotate.setAxis(Rotate.Z_AXIS);
+        Starrotate.setCycleCount(500);
         Starrotate.setByAngle(360);
         Starrotate.setDuration(Duration.millis(5000));
         Starrotate.setNode(star);
-        Starrotate.setCycleCount(500);
         Starrotate.play();
         starlist.add(star);
-        Starrotate.setCycleCount(500);
         star.setX(280);
         star.setY(800*(count[0]+1)-500);
         main.getChildren().add(star);
@@ -323,7 +323,7 @@ class DoubleHCircle extends Obstacles{
 class RotatingX extends Obstacles{
 
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         Line x1=new Line(250,200,250,300);
         x1.setStroke(Color.valueOf("FF0181"));
         x1.setStrokeWidth(20);
@@ -342,9 +342,10 @@ class RotatingX extends Obstacles{
         RotateTransition Starrotate = new RotateTransition();
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
+        Starrotate.setCycleCount(500);
         Starrotate.setDuration(Duration.millis(5000));
         Starrotate.setNode(star);
-        Starrotate.setCycleCount(500);
+
         Starrotate.play();
         starlist.add(star);
         star.setX(280);
@@ -374,7 +375,7 @@ class RotatingX extends Obstacles{
 class ConcCircle extends Obstacles{
 
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         Arc cc1 = new Arc(300,150,130,130,45,90);
         cc1.setStroke(Color.valueOf("FF0181"));
         cc1.setStrokeWidth(20);
@@ -428,8 +429,9 @@ class ConcCircle extends Obstacles{
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
         Starrotate.setDuration(Duration.millis(5000));
-        Starrotate.setNode(star);
         Starrotate.setCycleCount(500);
+        Starrotate.setNode(star);
+
         Starrotate.play();
         starlist.add(star);
         star.setX(280);
@@ -461,7 +463,7 @@ class ConcCircle extends Obstacles{
 class XinCircle extends Obstacles{
 
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         Line x1=new Line(250,200,250,250);
         x1.setStroke(Color.valueOf("FF0181"));
         x1.setStrokeWidth(20);
@@ -521,9 +523,11 @@ class XinCircle extends Obstacles{
         RotateTransition Starrotate = new RotateTransition();
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
-        Starrotate.setDuration(Duration.millis(5000));
-        Starrotate.setNode(star);
         Starrotate.setCycleCount(500);
+        Starrotate.setDuration(Duration.millis(5000));
+
+        Starrotate.setNode(star);
+
         Starrotate.play();
         starlist.add(star);
         star.setX(280);
@@ -546,7 +550,7 @@ class XinCircle extends Obstacles{
 class HLine extends Obstacles{
 
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         Line hl1=new Line(0,200,200,200);
         hl1.setStroke(Color.valueOf("910DFF"));
         hl1.setStrokeWidth(20);
@@ -573,9 +577,10 @@ class HLine extends Obstacles{
         RotateTransition Starrotate = new RotateTransition();
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
+        Starrotate.setCycleCount(500);
         Starrotate.setDuration(Duration.millis(5000));
         Starrotate.setNode(star);
-        Starrotate.setCycleCount(500);
+
         Starrotate.play();
         starlist.add(star);
         star.setX(280);
@@ -605,7 +610,7 @@ class HLine extends Obstacles{
 class VLines extends Obstacles{
 
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         Line vl1=new Line(0,250,0,400);
         vl1.setStroke(Color.valueOf("910DFF"));
         vl1.setStrokeWidth(20);
@@ -662,9 +667,10 @@ class VLines extends Obstacles{
         RotateTransition Starrotate = new RotateTransition();
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
+        Starrotate.setCycleCount(500);
         Starrotate.setDuration(Duration.millis(5000));
         Starrotate.setNode(star);
-        Starrotate.setCycleCount(500);
+
         Starrotate.play();
         starlist.add(star);
         star.setX(280);
@@ -706,7 +712,7 @@ class VLines extends Obstacles{
 class DoubleX extends Obstacles{
 
     @Override
-    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main) {
+    void InitiateObstacle(ArrayList<ImageView> starlist, ArrayList<Shape> a, int[] count, AnchorPane main,int[] difficulty) {
         Line dx1=new Line(200,200,200,300);
         dx1.setStroke(Color.valueOf("FF0181"));
         dx1.setStrokeWidth(20);
@@ -771,9 +777,10 @@ class DoubleX extends Obstacles{
         RotateTransition Starrotate = new RotateTransition();
         Starrotate.setAxis(Rotate.Z_AXIS);
         Starrotate.setByAngle(360);
+        Starrotate.setCycleCount(500);
         Starrotate.setDuration(Duration.millis(5000));
         Starrotate.setNode(star);
-        Starrotate.setCycleCount(500);
+
         Starrotate.play();
         starlist.add(star);
         star.setX(280);
