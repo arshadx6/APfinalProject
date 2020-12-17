@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -12,6 +13,9 @@
    <children>
       <Pane prefHeight="800.0" prefWidth="600.0">
          <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f28" height="31.0" layoutX="26.0" layoutY="751.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fffa1f" height="31.0" layoutX="14.0" layoutY="754.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" layoutX="33.0" layoutY="767.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
             <ImageView fx:id="CircleImage" fitHeight="342.0" fitWidth="346.0" layoutX="128.0" layoutY="34.0" onDragDetected="#initialize">
                <image>
                   <Image url="circle.png" />
@@ -53,7 +57,7 @@
                <font>
                   <Font name="Gill Sans Ultra Bold" size="17.0" />
                </font></Text>
-            <Button layoutY="740.0" mnemonicParsing="false" onAction="#Balls" prefHeight="53.0" prefWidth="81.0" text="Button" />
+            <Button layoutY="740.0" mnemonicParsing="false" onAction="#Balls" opacity="0.0" prefHeight="53.0" prefWidth="81.0" text="Button" />
          </children>
       </Pane>
    </children>

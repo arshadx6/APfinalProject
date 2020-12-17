@@ -8,7 +8,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: #272727;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SelectBalls">
    <children>
       <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" fill="#ffadad" height="80.0" layoutX="69.0" layoutY="389.0" stroke="#ffadad" strokeType="INSIDE" width="80.0" />
@@ -32,5 +31,12 @@
       <Rectangle fx:id="rect1" arcHeight="5.0" arcWidth="5.0" fill="#610024" height="80.0" layoutX="261.0" layoutY="389.0" stroke="WHITE" strokeType="INSIDE" width="80.0" />
       <Rectangle fx:id="rect11" arcHeight="5.0" arcWidth="5.0" fill="#c39800" height="80.0" layoutX="453.0" layoutY="389.0" stroke="WHITE" strokeType="INSIDE" width="80.0" />
       <Button layoutX="460.0" layoutY="517.0" mnemonicParsing="false" onAction="#color3" opacity="0.0" text="Button" />
+      <Rectangle fx:id="rect12" arcHeight="5.0" arcWidth="5.0" fill="#272727" height="134.0" layoutX="233.0" layoutY="119.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="134.0" />
+      <Text fill="WHITE" layoutX="276.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SELECT" wrappingWidth="50.48284912109375">
+         <font>
+            <Font name="Britannic Bold" size="15.0" />
+         </font>
+      </Text>
+      <Button layoutX="268.0" layoutY="267.0" mnemonicParsing="false" onAction="#color4" opacity="0.0" text="Button" />
    </children>
 </AnchorPane>

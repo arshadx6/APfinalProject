@@ -25,7 +25,7 @@ public class SelectBalls {
         Stage primaryStage =new Stage();
         Start s = new Start();
 
-        //s.setBGCOLOR("#ffadad");
+        s.setBGCOLOR("ffadad");
         Parent root = FXMLLoader.load(getClass().getResource("2ndScreen.fxml"));
         primaryStage.setTitle("new");
         primaryStage.setScene(new Scene(root,600,800));
@@ -41,7 +41,7 @@ public class SelectBalls {
         Stage primaryStage =new Stage();
         Start s = new Start();
 
-       // s.setBGCOLOR("610024");
+        s.setBGCOLOR("610024");
         Parent root = FXMLLoader.load(getClass().getResource("2ndScreen.fxml"));
         primaryStage.setTitle("new");
         primaryStage.setScene(new Scene(root,600,800));
@@ -57,7 +57,23 @@ public class SelectBalls {
         Stage primaryStage =new Stage();
         Start s = new Start();
 
-       // s.setBGCOLOR("c39800");
+        s.setBGCOLOR("c39800");
+        Parent root = FXMLLoader.load(getClass().getResource("2ndScreen.fxml"));
+        primaryStage.setTitle("new");
+        primaryStage.setScene(new Scene(root,600,800));
+        root.requestFocus();
+        primaryStage.show();
+    }
+    public void color4() throws IOException{
+        Circle X =new Circle();
+        X.setRadius(10);
+        X.setFill(Color.WHITE);
+        Stage stage = (Stage) rect.getScene().getWindow();
+        stage.close();
+        Stage primaryStage =new Stage();
+        Start s = new Start();
+
+        s.setBGCOLOR("272727");
         Parent root = FXMLLoader.load(getClass().getResource("2ndScreen.fxml"));
         primaryStage.setTitle("new");
         primaryStage.setScene(new Scene(root,600,800));

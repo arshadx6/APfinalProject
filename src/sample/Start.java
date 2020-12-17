@@ -127,6 +127,16 @@ public class Start implements Initializable , Serializable {
         saveRevive(new File("Revive.txt"));
         changetoRevive();
     }
+    private static String BGCOLOR="272727";
+
+    public String getBGCOLOR() {
+        return BGCOLOR;
+    }
+
+    public void setBGCOLOR(String BGCOLOR) {
+        this.BGCOLOR = BGCOLOR;
+    }
+
     public static Start getTempgame() {
         return tempgame;
     }
@@ -285,8 +295,8 @@ public class Start implements Initializable , Serializable {
 
         Scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         Scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-
-        Scroll.setStyle("-fx-background: #" + "272727");
+        String s=getBGCOLOR();
+        Scroll.setStyle("-fx-background: #" + s);
 
         //Scroll.vvalueProperty().bind(main.heightProperty());
         Scroll.setVvalue(main.getLayoutY());
