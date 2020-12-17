@@ -414,7 +414,7 @@ public class Start implements Initializable , Serializable {
                                 nextobs=1+random.nextInt(7);
                             }
                             else{
-                                nextobs=1+random.nextInt(10);
+                                nextobs=1+random.nextInt(4);
                                 //nextobs=1+random.nextInt(4);
                             }
                             Image clrimage =new Image("colorswitch.png");

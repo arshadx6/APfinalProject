@@ -108,7 +108,7 @@ public class Revive implements Initializable ,Serializable{
         //playing the transition
         rotate.play();
         Starrotate.play();
-        main.setStyle("-fx-background: #" + "3D3E3D");
+        main.setStyle("-fx-background: #" + "272727");
         Start s = new Start();
         try {
             Stars.setText("Total Stars = "+s.getpoints(new File("Points.txt")));
